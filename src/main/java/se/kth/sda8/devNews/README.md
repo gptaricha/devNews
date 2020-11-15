@@ -3,10 +3,8 @@ This is a developer news site where users can post articles, update or delete th
 the articles, update and delete their comments on the articles.
 
 
-### It will give the user the ability to be able to choose what he wants to do:
+### It will give the user the ability to be able to choose what he wants to do, for example:
 >> 
->> You have 4 tasks todo and 2 tasks done
->> Pick an option: 
 >> (1) Get the list of Articles
 >> (2) Get the list of Comments for a given article.
 >> (3) Get the list of Topics
