@@ -1,10 +1,30 @@
 package se.kth.sda8.devNews.articles;
 
+import se.kth.sda8.devNews.comments.Comment;
+import se.kth.sda8.devNews.topics.Topic;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "Article")
 public class Article {
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name="title")
     private String title;
+    @Column(name = "textBody")
     private String textBody;
+    @Column(name = "authorName")
     private String authorName;
+
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<Comment> comments;
+
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Topic> topics;
 
     public Article() {
     }
@@ -46,5 +66,21 @@ public class Article {
 
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+/*
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }*/
+
+    public List<Topic> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<Topic> topics) {
+        this.topics = topics;
     }
 }
